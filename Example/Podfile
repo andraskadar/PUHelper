@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'PUHelper_Example', :exclusive => true do
+  pod 'PUHelper', :path => '../'
+end
+
+target 'PUHelper_Tests', :exclusive => true do
+  pod 'PUHelper', :path => '../'
+
+  
+end
