@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 // MARK: - Map Dictionary type
 //  http://stackoverflow.com/questions/24116271/whats-the-cleanest-way-of-applying-map-to-a-dictionary-in-swift/24219069#24219069
 public extension Dictionary {
