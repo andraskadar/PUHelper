@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "Collection of helper classes and methods for the PinUp team."
 
-  s.homepage         = "https://github.com/puhelper/PUHelper"
+  s.homepage         = "https://github.com/kadarandras/PUHelper"
   s.license          = 'MIT'
   s.author           = { "Andras Kadar" => "kadarandrass@gmail.com" }
   s.source           = { :git => "https://github.com/kadarandras/PUHelper.git", :tag => s.version.to_s }
@@ -26,5 +26,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SSKeychain'
+  s.dependency 'RealmSwift'
 end
