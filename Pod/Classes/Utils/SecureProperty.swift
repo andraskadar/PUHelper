@@ -7,7 +7,7 @@
 //
 //
 
-//import SSKeychain
+import SSKeychain
 
 private let BundleIdentifier: String = NSBundle.mainBundle().bundleIdentifier!
 
@@ -20,10 +20,10 @@ public class SecureProperty: NSObject {
         didSet {
             // If a value exists, replace it
             if let changedValue = value {
-//                SSKeychain.setPassword(changedValue, forService: propertyName, account: account)
+                SSKeychain.setPassword(changedValue, forService: propertyName, account: account)
             } else {
                 // If it is cleared, delete from KeyChain
-//                SSKeychain.deletePasswordForService(propertyName, account: account)
+                SSKeychain.deletePasswordForService(propertyName, account: account)
             }
         }
     }
@@ -34,11 +34,11 @@ public class SecureProperty: NSObject {
         
         // Try to load data from the keychain (if exists)
         do {
-//            let query = SSKeychainQuery()
-//            query.service = propertyName
-//            query.account = account
-//            try query.fetch()
-//            value = query.password
+            let query = SSKeychainQuery()
+            query.service = propertyName
+            query.account = account
+            try query.fetch()
+            value = query.password
         } catch let error as NSError {
             print("[UM] Error loading \(propertyName): \(error.localizedDescription)")
             value = nil
@@ -56,10 +56,10 @@ public class SecureDataProperty: NSObject {
         didSet {
             // If a value exists, replace it
             if let changedValue = value {
-//                SSKeychain.setPasswordData(changedValue, forService: propertyName, account: account)
+                SSKeychain.setPasswordData(changedValue, forService: propertyName, account: account)
             } else {
                 // If it is cleared, delete from KeyChain
-//                SSKeychain.deletePasswordForService(propertyName, account: account)
+                SSKeychain.deletePasswordForService(propertyName, account: account)
             }
         }
     }
@@ -70,11 +70,11 @@ public class SecureDataProperty: NSObject {
         
         // Try to load data from the keychain (if exists)
         do {
-//            let query = SSKeychainQuery()
-//            query.service = propertyName
-//            query.account = account
-//            try query.fetch()
-//            value = query.passwordData
+            let query = SSKeychainQuery()
+            query.service = propertyName
+            query.account = account
+            try query.fetch()
+            value = query.passwordData
         } catch let error as NSError {
             print("[UM] Error loading \(propertyName): \(error.localizedDescription)")
             value = nil
