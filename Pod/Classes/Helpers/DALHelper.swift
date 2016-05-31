@@ -29,13 +29,11 @@ public class DALHelper: NSObject {
      
      - parameter encrypted:      Indicator wether the database should be encrypted
      - parameter schemaVersion:  Optional schema version of the database
-     - parameter realmPath:      Optional realm path
      - parameter migrationBlock: Optional migration block
      */
     public class func configure(
         encrypted: Bool = false,
         schemaVersion: UInt64 = 1,
-        realmPath: String? = nil,
         migrationBlock: MigrationBlock? = nil
         ) {
         
@@ -76,17 +74,18 @@ public class DALHelper: NSObject {
         }
         
         realmConfiguration = Realm.Configuration(
-            path: NSURL.realmUrl().path,
+            fileURL: NSURL.realmUrl(),
             inMemoryIdentifier: nil,
             encryptionKey: encryptionKey,
             readOnly: false,
             schemaVersion: schemaVersion,
             migrationBlock: migrationBlock,
+            deleteRealmIfMigrationNeeded: false,
             objectTypes: nil)
         
         do {
             realm = try Realm(configuration: realmConfiguration)
-            print("[REALM] Path: \(realm.path)")
+            print("[REALM] Path: \(NSURL.realmUrl())")
         } catch let error as NSError {
             fatalError("Error opening realm: \(error)")
         }
