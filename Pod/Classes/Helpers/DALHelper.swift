@@ -172,7 +172,7 @@ public extension DALHelper {
 
 extension NSURL {
     
-    class func realmUrl() -> NSURL {
+    public class func realmUrl() -> NSURL {
         return realmDirectoryURL().URLByAppendingPathComponent("Database").URLByAppendingPathExtension("realm")
     }
     

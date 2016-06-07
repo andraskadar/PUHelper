@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PUHelper"
-  s.version          = "0.2.0"
+  s.version          = "0.2.1"
   s.summary          = "Collection of helper classes and methods for the PinUp team."
 
   s.homepage         = "https://github.com/kadarandras/PUHelper"
